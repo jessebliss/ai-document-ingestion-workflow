@@ -1,0 +1,47 @@
+{
+  "document": {
+    "id": "doc_abc123",
+    "type": "invoice",
+    "sourceFile": "s3://bucket/invoices/2024/inv-789.pdf",
+    "processedAt": "2024-03-15T14:32:00Z",
+    "ocrProvider": "cloud-vision",
+    "extractionModel": "gpt-4o"
+  },
+  "entities": {
+    "vendor": {
+      "name": "Acme Supplies Inc.",
+      "confidence": 0.96
+    },
+    "invoiceNumber": {
+      "value": "INV-2024-0789",
+      "confidence": 0.98
+    },
+    "invoiceDate": {
+      "value": "2024-03-10",
+      "confidence": 0.94
+    },
+    "dueDate": {
+      "value": "2024-04-10",
+      "confidence": 0.89
+    },
+    "totalAmount": {
+      "value": 15420.50,
+      "currency": "USD",
+      "confidence": 0.97
+    },
+    "lineItems": [
+      {
+        "description": "Office supplies - Q1 batch",
+        "quantity": 2,
+        "unitPrice": 7710.25,
+        "amount": 15420.50,
+        "confidence": 0.91
+      }
+    ]
+  },
+  "documentLevelConfidence": 0.89,
+  "validation": {
+    "passed": true,
+    "violations": []
+  }
+}

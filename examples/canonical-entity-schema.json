@@ -1,0 +1,53 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Canonical Entity Schema for Document Extraction",
+  "description": "Reference schema for entities commonly extracted from business documents",
+  "definitions": {
+    "money": {
+      "type": "object",
+      "required": ["value", "currency"],
+      "properties": {
+        "value": { "type": "number" },
+        "currency": { "type": "string", "pattern": "^[A-Z]{3}$" }
+      }
+    },
+    "date": {
+      "type": "string",
+      "format": "date",
+      "description": "ISO 8601 date (YYYY-MM-DD)"
+    },
+    "party": {
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "address": { "type": "string" },
+        "identifier": { "type": "string", "description": "Tax ID, registration number, etc." }
+      }
+    },
+    "lineItem": {
+      "type": "object",
+      "properties": {
+        "description": { "type": "string" },
+        "quantity": { "type": "number" },
+        "unitPrice": { "type": "number" },
+        "amount": { "type": "number" },
+        "confidence": { "type": "number", "minimum": 0, "maximum": 1 }
+      }
+    }
+  },
+  "type": "object",
+  "properties": {
+    "documentId": { "type": "string" },
+    "documentType": { "type": "string", "enum": ["invoice", "contract", "form", "correspondence", "other"] },
+    "vendor": { "$ref": "#/definitions/party" },
+    "customer": { "$ref": "#/definitions/party" },
+    "invoiceNumber": { "type": "string" },
+    "invoiceDate": { "$ref": "#/definitions/date" },
+    "dueDate": { "$ref": "#/definitions/date" },
+    "totalAmount": { "$ref": "#/definitions/money" },
+    "lineItems": {
+      "type": "array",
+      "items": { "$ref": "#/definitions/lineItem" }
+    }
+  }
+}
