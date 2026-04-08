@@ -129,7 +129,8 @@ ai-document-ingestion-workflow/
 │   └── business-rules-example.md
 └── docs/
     ├── glossary.md           # Terms: OCR, LLM extraction, confidence, etc.
-    └── integration-notes.md  # Hooks for CRM/case system integration
+    ├── integration-notes.md  # Hooks for CRM/case system integration
+    └── metrics-and-kpis.md   # Quality, SLA, and cost metrics
 ```
 
 ---
@@ -139,5 +140,7 @@ ai-document-ingestion-workflow/
 - **Schema design**: Keep entity schemas stable and versioned for downstream consumers.
 - **Idempotency**: Use document ID (and optional version) so re-processing does not duplicate records.
 - **Cost and latency**: OCR + LLM cost and time scale with document size; consider async processing and queue-based design.
+
+For measurement guidance, see `docs/metrics-and-kpis.md`.
 
 For SaaS integration patterns (APIs, webhooks, retries), see the companion repository **saas-integration-patterns**. For product thinking on AI-assisted workflows and human oversight, see **ai-product-workflow-experiments**.
