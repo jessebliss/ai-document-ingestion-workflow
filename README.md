@@ -144,3 +144,14 @@ ai-document-ingestion-workflow/
 For measurement guidance, see `docs/metrics-and-kpis.md`.
 
 For SaaS integration patterns (APIs, webhooks, retries), see the companion repository **saas-integration-patterns**. For product thinking on AI-assisted workflows and human oversight, see **ai-product-workflow-experiments**.
+
+---
+
+## Quality Checks
+
+Run local markdown-link validation and tests:
+
+```bash
+python3 tools/validate_markdown_links.py
+python3 -m unittest discover -s tests -p "test_*.py"
+```
