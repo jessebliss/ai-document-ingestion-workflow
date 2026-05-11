@@ -121,16 +121,18 @@ See:
 ai-document-ingestion-workflow/
 ├── README.md                 # This file
 ├── architecture/
-│   ├── pipeline-overview.md  # Stage-by-stage pipeline description
-│   └── confidence-routing.md # Confidence thresholds and routing logic
+│   ├── pipeline-overview.md        # Stage-by-stage pipeline description
+│   ├── confidence-routing.md         # Confidence thresholds and routing logic
+│   └── failure-modes-and-recovery.md # Ops playbook by pipeline stage
 ├── examples/
 │   ├── extraction-with-confidence.json
 │   ├── canonical-entity-schema.json
 │   └── business-rules-example.md
 └── docs/
     ├── glossary.md           # Terms: OCR, LLM extraction, confidence, etc.
-    ├── integration-notes.md  # Hooks for CRM/case system integration
-    └── metrics-and-kpis.md   # Quality, SLA, and cost metrics
+    ├── integration-notes.md          # Hooks for CRM/case system integration
+    ├── metrics-and-kpis.md           # Quality, SLA, and cost metrics
+    └── prompt-and-schema-versioning.md # Versioning prompts, models, and schemas
 ```
 
 ---
@@ -141,7 +143,7 @@ ai-document-ingestion-workflow/
 - **Idempotency**: Use document ID (and optional version) so re-processing does not duplicate records.
 - **Cost and latency**: OCR + LLM cost and time scale with document size; consider async processing and queue-based design.
 
-For measurement guidance, see `docs/metrics-and-kpis.md`.
+For measurement guidance, see `docs/metrics-and-kpis.md`. For operational recovery and versioning, see `architecture/failure-modes-and-recovery.md` and `docs/prompt-and-schema-versioning.md`.
 
 For SaaS integration patterns (APIs, webhooks, retries), see the companion repository **saas-integration-patterns**. For product thinking on AI-assisted workflows and human oversight, see **ai-product-workflow-experiments**.
 
