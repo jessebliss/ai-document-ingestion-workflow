@@ -1,0 +1,31 @@
+{
+  "documentId": "doc_8f2c91a4",
+  "documentType": "invoice",
+  "status": "pending_review",
+  "submittedAt": "2026-05-22T18:04:12Z",
+  "routing": {
+    "reason": "low_confidence",
+    "documentConfidence": 0.81,
+    "threshold": 0.9
+  },
+  "lowConfidenceFields": [
+    {
+      "path": "entities.vendor.name",
+      "value": "Acme Supplis LLC",
+      "confidence": 0.72
+    },
+    {
+      "path": "entities.totals.amountDue",
+      "value": 1842.5,
+      "confidence": 0.68
+    }
+  ],
+  "ruleViolations": [
+    {
+      "code": "DATE_OUT_OF_RANGE",
+      "field": "entities.invoiceDate",
+      "message": "Invoice date is more than 365 days in the future."
+    }
+  ],
+  "reviewerActions": ["approve", "edit", "reject"]
+}

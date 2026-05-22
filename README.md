@@ -127,12 +127,14 @@ ai-document-ingestion-workflow/
 ├── examples/
 │   ├── extraction-with-confidence.json
 │   ├── canonical-entity-schema.json
-│   └── business-rules-example.md
+│   ├── business-rules-example.md
+│   └── review-queue-item.json        # Sample human-review queue payload
 └── docs/
     ├── glossary.md           # Terms: OCR, LLM extraction, confidence, etc.
     ├── integration-notes.md          # Hooks for CRM/case system integration
     ├── metrics-and-kpis.md           # Quality, SLA, and cost metrics
-    └── prompt-and-schema-versioning.md # Versioning prompts, models, and schemas
+    ├── prompt-and-schema-versioning.md # Versioning prompts, models, and schemas
+    └── review-queue-contract.md      # Review queue API/UI contract
 ```
 
 ---
@@ -143,7 +145,7 @@ ai-document-ingestion-workflow/
 - **Idempotency**: Use document ID (and optional version) so re-processing does not duplicate records.
 - **Cost and latency**: OCR + LLM cost and time scale with document size; consider async processing and queue-based design.
 
-For measurement guidance, see `docs/metrics-and-kpis.md`. For operational recovery and versioning, see `architecture/failure-modes-and-recovery.md` and `docs/prompt-and-schema-versioning.md`.
+For measurement guidance, see `docs/metrics-and-kpis.md`. For operational recovery and versioning, see `architecture/failure-modes-and-recovery.md` and `docs/prompt-and-schema-versioning.md`. For reviewer queue payloads and SLAs, see `docs/review-queue-contract.md` and `examples/review-queue-item.json`.
 
 For SaaS integration patterns (APIs, webhooks, retries), see the companion repository **saas-integration-patterns**. For product thinking on AI-assisted workflows and human oversight, see **ai-product-workflow-experiments**.
 
