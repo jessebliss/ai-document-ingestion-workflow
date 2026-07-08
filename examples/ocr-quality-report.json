@@ -1,0 +1,17 @@
+{
+  "documentId": "doc_8f2c91a4",
+  "ocrEngine": "layout-v3.2",
+  "processedAt": "2026-07-08T16:12:44Z",
+  "pageCount": 4,
+  "signals": {
+    "meanWordConfidence": 0.76,
+    "lowConfidenceTokenRatio": 0.31,
+    "blankPageRatio": 0.0,
+    "layoutComplexityScore": 0.71
+  },
+  "recommendedAction": "pre_review",
+  "reasons": [
+    "lowConfidenceTokenRatio above threshold",
+    "layoutComplexityScore above threshold"
+  ]
+}
